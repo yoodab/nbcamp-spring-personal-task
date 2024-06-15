@@ -62,6 +62,21 @@ public class SignupReqDtoTest {
     }
 
     @Test
+    @DisplayName("닉네임이 유효하지 않은 경우")
+    public void whenNicknameIsInvalid(){
+        SignupReqDto signupReqDto = new SignupReqDto("invalidNickname__", "validPassword", "John Doe",
+                "john.doe@example.com", "Hello!");
+
+
+        Set<ConstraintViolation<SignupReqDto>> violations = validator.validate(signupReqDto);
+        assertThat(violations).hasSize(1);
+
+        ConstraintViolation<SignupReqDto> violation = violations.iterator().next();
+        assertThat(violation.getMessage()).isEqualTo("nickname은 알파벳 대소문자, 숫자로 구성되야합니다.");
+
+    }
+
+    @Test
     @DisplayName("비밀번호가 짧은 경우")
     public void whenPasswordIsShort() {
         SignupReqDto signupReqDto = new SignupReqDto("validNickname", "short", "John Doe",

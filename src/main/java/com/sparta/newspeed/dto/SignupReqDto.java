@@ -21,7 +21,7 @@ public class SignupReqDto {
     private String nickname; // 사용자 ID
     @Schema(description = "비밀번호", example = "password123")
     @Size(min = 10,  message = "password는 최소 10자 이상이어야합니다.")
-    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "password는 알파벳 대소문자, 숫자)로 구성되야합니다.")
+    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "password는 알파벳 대소문자, 숫자로 구성되야합니다.")
     private String password; // 비밀번호
     @Schema(description = "이름", example = "John Doe")
     @NotBlank(message = "이름은 필수입니다.")
