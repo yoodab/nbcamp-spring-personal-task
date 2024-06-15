@@ -87,5 +87,31 @@ public class SignupReqDtoTest {
         assertThat(violation.getMessage()).isEqualTo("올바른 이메일 형식이어야 합니다.");
     }
 
+    @Test
+    @DisplayName("한 줄 소개가 빈 경우")
+    public void whenIntroduceIsBlank() {
+        SignupReqDto signupReqDto = new SignupReqDto("validNickname", "validPassword123", "John Doe",
+                "john.doe@example.com", "");
+
+        Set<ConstraintViolation<SignupReqDto>> violations = validator.validate(signupReqDto);
+        assertThat(violations).hasSize(1);
+
+        ConstraintViolation<SignupReqDto> violation = violations.iterator().next();
+        assertThat(violation.getMessage()).isEqualTo("한 줄 소개는 필수입니다.");
+    }
+
+
+    @Test
+    @DisplayName("이름이 빈 경우")
+    public void whenUsernameIsBlank() {
+        SignupReqDto signupReqDto = new SignupReqDto("validNickname", "validPassword123", "",
+                "john.doe@example.com", "Hello!");
+
+        Set<ConstraintViolation<SignupReqDto>> violations = validator.validate(signupReqDto);
+        assertThat(violations).hasSize(1);
+
+        ConstraintViolation<SignupReqDto> violation = violations.iterator().next();
+        assertThat(violation.getMessage()).isEqualTo("이름은 필수입니다.");
+    }
 
 }
