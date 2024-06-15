@@ -28,7 +28,7 @@ public class PeedResponseDto {
 
     public PeedResponseDto(Peed savepeed) {
         this.id = savepeed.getId();
-        this.nickname = savepeed.getNickname();
+        this.nickname = savepeed.getUser().getNickname();
         this.contents = savepeed.getContents();
         this.createdAt = savepeed.getCreatedAt();
         this.modifiedAt = savepeed.getModifiedAt();

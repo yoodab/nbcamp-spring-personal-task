@@ -18,10 +18,7 @@ public class Peed extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //    @Column(name = "user_id", nullable = false, length = 500)// 유저테이블에서 id만 가져오기
-//    private String user_id;
-    @Column(length = 500)
-    private String nickname;
+
     @Column(name = "contents", nullable = false, length = 500)
     private String contents;
 
@@ -37,12 +34,10 @@ public class Peed extends Timestamped{
 
 
     public Peed(PeedRequestDto requestDto) {
-
         this.contents = requestDto.getContents();
     }
 
     public Peed(PeedRequestDto requestDto, User user) {
-        this.nickname = user.getNickname();
         this.contents = requestDto.getContents();
         this.user = user;
         user.getPeedlist().add(this);
