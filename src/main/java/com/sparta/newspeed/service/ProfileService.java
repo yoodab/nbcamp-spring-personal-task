@@ -48,11 +48,7 @@ public class ProfileService {
             if (profileReqDto.getChangePassword().equals(profileReqDto.getPassword())) {
                 throw new IllegalArgumentException("비밀번호가 동일합니다.");
             }
-            // 새로운 비밀번호의 입력형식이 맞지 않을 때 대
-            // 소문자 포함 영문 + 숫자 + 특수문자를 최소 1글자씩 포함합니다. 비밀번호는 최소 10글자 이상이어야 합니다.
-            if (!profileReqDto.getChangePassword().matches("^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[~!@#$%^&*]).{10,}$")) {
-                throw new IllegalArgumentException("비밀번호 입력형식이 맞지 않습니다.");
-            }
+
             profileReqDto.setChangePassword(passwordEncoder.encode(profileReqDto.getChangePassword()));
             user2.update(profileReqDto);
         }

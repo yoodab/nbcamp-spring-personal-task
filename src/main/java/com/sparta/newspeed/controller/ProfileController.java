@@ -4,6 +4,7 @@ import com.sparta.newspeed.dto.ProfileReqDto;
 import com.sparta.newspeed.dto.UserResDto;
 import com.sparta.newspeed.security.UserDetailsImpl;
 import com.sparta.newspeed.service.ProfileService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ProfileController {
     }
 
     @PutMapping("/profile/{id}")
-    public UserResDto updateProfile (@PathVariable Long id, @RequestBody ProfileReqDto profileReqDto) {
+    public UserResDto updateProfile (@PathVariable Long id, @Valid @RequestBody ProfileReqDto profileReqDto) {
         return profileService.updateProfile(id, profileReqDto);
     }
 
