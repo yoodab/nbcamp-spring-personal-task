@@ -1,10 +1,12 @@
 package com.sparta.newspeed.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class ProfileReqDto {
 
     private String username;

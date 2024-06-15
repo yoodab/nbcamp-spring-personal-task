@@ -3,12 +3,10 @@ package com.sparta.newspeed.entity;
 import com.sparta.newspeed.Timestamped;
 import com.sparta.newspeed.dto.ProfileReqDto;
 import com.sparta.newspeed.dto.SignupReqDto;
-import com.sparta.newspeed.dto.UserReqDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,9 +79,6 @@ public class User extends Timestamped {
 
 }
 
-//    private RefreshToken refreshToken; // 리프레쉬 토큰
-//
-//    private Content Content; // 게시물 외래키
 
 
 

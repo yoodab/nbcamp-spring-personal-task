@@ -1,14 +1,17 @@
 package com.sparta.newspeed.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @Schema(description = "회원가입 요청 DTO")
 public class SignupReqDto {
     @Schema(description = "사용자 ID", example = "nickname123")
@@ -23,6 +26,7 @@ public class SignupReqDto {
     @Schema(description = "이름", example = "John Doe")
     private String username; // 사용자 이름
     @Schema(description = "이메일", example = "john.doe@example.com")
+    @Email(message = "올바른 이메일 형식이어야 합니다.")
     private String email; // 사용자 이메일
     @Schema(description = "한 줄 소개", example = "안녕하세요, 반갑습니다!")
     private String introduce; // 사용자 한 줄 소개

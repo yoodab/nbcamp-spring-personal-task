@@ -1,7 +1,6 @@
 package com.sparta.newspeed.service;
 
 import com.sparta.newspeed.dto.ProfileReqDto;
-import com.sparta.newspeed.dto.UserReqDto;
 import com.sparta.newspeed.dto.UserResDto;
 import com.sparta.newspeed.entity.User;
 import com.sparta.newspeed.repository.UserRepository;

@@ -41,6 +41,8 @@ dependencies {
     // MySQL
     implementation 'mysql:mysql-connector-java:8.0.28'
 
+    testImplementation 'org.mockito:mockito-core:4.8.0'
+
     //mailcheck
     implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.2'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
