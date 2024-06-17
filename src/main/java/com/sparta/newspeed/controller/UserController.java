@@ -70,7 +70,7 @@ public class UserController {
     @Operation(summary = "로그아웃", description = "로그아웃을 수행합니다.")
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest req,
-                                         @Parameter(hidden = true) UserDetailsImpl userDetailsImpl) {
+                                         @Parameter(hidden = true) @AuthenticationPrincipal UserDetailsImpl userDetailsImpl) {
         userService.logout(req, userDetailsImpl);
         return new ResponseEntity<>("로그아웃 완료", HttpStatus.OK);
     } // 로그아웃
