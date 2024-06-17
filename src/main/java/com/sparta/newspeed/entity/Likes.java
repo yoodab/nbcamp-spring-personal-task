@@ -30,8 +30,6 @@ public class Likes extends Timestamped{
         this.user = user;
         this.contentType = contentTypeEnum;
         this.user.getLikesList().add(this);
-//        comment.getLikesList().add(this);
-
     }
 
     public Likes(Peed peed, User user, ContentTypeEnum contentTypeEnum) {
@@ -39,6 +37,5 @@ public class Likes extends Timestamped{
         this.user = user;
         this.contentType = contentTypeEnum;
         this.user.getLikesList().add(this);
-//        peed.getLikesList().add(this);
     }
 }
