@@ -18,11 +18,11 @@ public class Comment extends Timestamped {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "peed_id")
+    @JoinColumn(name = "peed_id", nullable = false)
     private Peed peed;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
    private int likesCount;
